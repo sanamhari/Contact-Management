@@ -1,0 +1,42 @@
+const ContactForm = () => {
+    const [formData, setFormData] = useState({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phoneNumber: '',
+        company: '',
+        jobTitle: '',
+    });
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Handle form submission,   
+ e.g., send data to backend
+        console.log(formData);
+    };
+
+    return (
+        <form onSubmit={handleSubmit}>
+            <TextField
+                label="First Name"
+                variant="outlined"
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleChange}   
+
+                fullWidth
+            />
+            {/* ... other fields ... */}
+            <Button type="submit" variant="contained" color="primary">
+                Add Contact
+            </Button>
+        </form>
+    );
+};
